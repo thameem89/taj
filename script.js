@@ -99,11 +99,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Desktop Dropdown Click Support
   const desktopDropdown = document.querySelector('.nav-item-dropdown');
-  if (desktopDropdown) {
-    desktopDropdown.addEventListener('click', (e) => {
-      // If they click the "Our Divisions" text, let it toggle if we want, or prevent default
-      // But we just want it to be more robust
+  const dropdownToggleLink = desktopDropdown ? desktopDropdown.querySelector('a') : null;
+  
+  if (desktopDropdown && dropdownToggleLink) {
+    dropdownToggleLink.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent navigating to divisions.html, making it a pure dropdown toggle
       desktopDropdown.classList.toggle('active-dropdown');
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', (e) => {
+      if (!desktopDropdown.contains(e.target)) {
+        desktopDropdown.classList.remove('active-dropdown');
+      }
     });
   }
 });

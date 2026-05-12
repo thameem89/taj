@@ -96,4 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileDropdownToggle.classList.toggle('open');
     });
   }
+
+  // Desktop Dropdown Click Support
+  const desktopDropdown = document.querySelector('.nav-item-dropdown');
+  if (desktopDropdown) {
+    desktopDropdown.addEventListener('click', (e) => {
+      // If they click the "Our Divisions" text, let it toggle if we want, or prevent default
+      // But we just want it to be more robust
+      desktopDropdown.classList.toggle('active-dropdown');
+    });
+  }
 });

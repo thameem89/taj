@@ -968,7 +968,8 @@
   flex-direction: column;
   padding: 8px 0;
 }
-.nav-item-dropdown:hover .dropdown-menu {
+.nav-item-dropdown:hover .dropdown-menu,
+.nav-item-dropdown.active-dropdown .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

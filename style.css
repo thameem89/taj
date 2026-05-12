@@ -947,6 +947,8 @@
 /* ── DROPDOWN MENU ── */
 .nav-item-dropdown {
   position: relative;
+  padding: 20px 0;
+  margin: -20px 0;
 }
 .dropdown-menu {
   position: absolute;

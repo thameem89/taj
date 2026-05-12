@@ -178,7 +178,7 @@
     .fp-card-body p { font-size: 12px; color: var(--text-light); line-height: 1.5; }
     /* ── OTHER DIVISIONS ── */
     .other-divisions { padding: 100px 60px; background: var(--white); }
-    .other-div-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 52px; }
+    .other-div-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 52px; }
     .other-div-card { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.25s, transform 0.25s; background: white; }
     .other-div-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.1); transform: translateY(-4px); }
     .other-div-img { height: 220px; overflow: hidden; position: relative; }
@@ -942,4 +942,71 @@
   .page-hero { height: 50vh; }
   .page-hero-title { font-size: 40px; }
   .page-content { padding: 60px 24px; }
+}
+
+/* ── DROPDOWN MENU ── */
+.nav-item-dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-menu a {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.dropdown-menu a:hover {
+  background: var(--off-white);
+  color: var(--green);
+}
+/* Mobile Dropdown styles */
+.mobile-dropdown-container {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-dropdown-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--off-white);
+  padding-left: 20px;
+}
+.mobile-dropdown-menu.open {
+  display: flex;
+}
+.mobile-dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.mobile-dropdown-toggle::after {
+  content: '▼';
+  font-size: 10px;
+  margin-right: 10px;
+}
+.mobile-dropdown-toggle.open::after {
+  content: '▲';
 }

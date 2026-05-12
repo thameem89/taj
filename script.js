@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
+        setTimeout(() => {
+          mobileMenu.classList.remove('open');
+        }, 150); // Small delay allows the browser to process the link click before hiding
       });
     });
   }
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  const revealElements = document.querySelectorAll('.section-label, .section-title, .section-desc, .foods-hero-split, .channel-card, .other-div-card, .about-content > *, .about-img, .cta-banner > *');
+  const revealElements = document.querySelectorAll('.reveal-on-scroll, .section-label, .section-title, .section-desc, .foods-hero-split, .channel-card, .other-div-card, .about-content > *, .about-img, .cta-banner > *');
   
   revealElements.forEach(el => {
     el.classList.add('reveal-on-scroll');

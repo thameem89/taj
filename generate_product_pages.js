@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 const categories = [
-    { id: 'foods', name: 'Foods & Beverages', dir: 'foods-and-beverages' },
-    { id: 'cleaning', name: 'Cleaning Products', dir: 'cleaning' },
-    { id: 'cosmetics', name: 'Cosmetics', dir: 'cosmetics' },
-    { id: 'diapers', name: 'Diapers & Tissues', dir: 'diapers-and-tissues' },
-    { id: 'household', name: 'Household Items', dir: 'household-items' }
+    { id: 'foods', name: 'Foods & Beverages', dir: 'foods-and-beverages', placeholder: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=400&q=80' },
+    { id: 'cleaning', name: 'Cleaning Products', dir: 'cleaning', placeholder: 'https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&w=400&q=80' },
+    { id: 'cosmetics', name: 'Cosmetics', dir: 'cosmetics', placeholder: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80' },
+    { id: 'diapers', name: 'Diapers & Tissues', dir: 'diapers-and-tissues', placeholder: 'https://images.unsplash.com/photo-1563811771046-ba984ff30900?auto=format&fit=crop&w=400&q=80' },
+    { id: 'household', name: 'Household Items', dir: 'household-items', placeholder: 'https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=400&q=80' }
 ];
 
 const template = `<!DOCTYPE html>
@@ -134,24 +134,6 @@ const template = `<!DOCTYPE html>
         <strong>Taj Middleeast</strong>
         <em>Group of Companies</em>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Divisions</div>
-        <ul>
-          <li><a href="foods.html">Taj Foods</a></li>
-          <li><a href="recycle.html">Taj Recycle</a></li>
-          <li><a href="opticals.html">Taj Opticals</a></li>
-          <li><a href="packaging.html">Taj Packaging</a></li>
-          <li><a href="electronics.html">Taj Electronics</a></li>
-          <li><a href="zivo.html">Zivo Perfumes</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Company</div>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
     </div>
   </footer>
   <script src="script.js"></script>
@@ -159,19 +141,33 @@ const template = `<!DOCTYPE html>
 </html>`;
 
 categories.forEach(cat => {
-    const dirPath = path.join('taj_products', cat.dir);
-    if (!fs.existsSync(dirPath)) {
-        console.log(`Directory ${dirPath} not found, skipping.`);
-        return;
+    const txtPath = path.join('taj_products', cat.dir, 'products.txt');
+    let productNames = [];
+    
+    if (fs.existsSync(txtPath)) {
+        productNames = fs.readFileSync(txtPath, 'utf8')
+            .split('\n')
+            .map(line => line.trim())
+            .filter(line => line.length > 0);
     }
 
-    const files = fs.readdirSync(dirPath).filter(f => f.match(/\.(jpg|jpeg|png|webp)$/i));
-    const productHtml = files.map(file => {
-        const name = path.parse(file).name;
+    // Fallback if txt is empty but images exist
+    if (productNames.length === 0) {
+        const dirPath = path.join('taj_products', cat.dir);
+        if (fs.existsSync(dirPath)) {
+            productNames = fs.readdirSync(dirPath)
+                .filter(f => f.match(/\.(jpg|jpeg|png|webp)$/i))
+                .map(f => path.parse(f).name);
+        }
+    }
+
+    const productHtml = productNames.map(name => {
+        // Since original images are broken HTML files, we use placeholders
+        // but we keep the structure so the user can easily swap them later.
         return `
     <div class="product-item">
       <div class="product-img-box">
-        <img src="taj_products/${cat.dir}/${file}" alt="${name}" loading="lazy">
+        <img src="${cat.placeholder}" alt="${name}" loading="lazy">
       </div>
       <div class="product-name">${name}</div>
     </div>`;
@@ -182,5 +178,5 @@ categories.forEach(cat => {
         .split('{{PRODUCTS}}').join(productHtml);
 
     fs.writeFileSync(`products-${cat.id}.html`, pageContent);
-    console.log(`Created products-${cat.id}.html`);
+    console.log(`Created products-${cat.id}.html with placeholders`);
 });

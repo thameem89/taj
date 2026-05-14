@@ -5,15 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileLinks = document.querySelectorAll('.nav-mobile-menu a');
 
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       mobileMenu.classList.toggle('open');
+      console.log('Mobile menu toggled');
     });
 
     mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        setTimeout(() => {
-          mobileMenu.classList.remove('open');
-        }, 150); // Small delay allows the browser to process the link click before hiding
+      link.addEventListener('click', (e) => {
+        // Only close menu if it's a direct link, not a dropdown toggle
+        if (!link.classList.contains('mobile-dropdown-toggle')) {
+          setTimeout(() => {
+            mobileMenu.classList.remove('open');
+          }, 150);
+        }
       });
     });
   }

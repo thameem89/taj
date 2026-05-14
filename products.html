@@ -4,33 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Products — The Taj Collection | Taj Middleeast</title>
-  <meta name="description" content="Explore the diverse and premium product portfolio of Taj Middleeast Group, spanning luxury fragrances, high-quality foods, advanced electronics, and sustainable industrial solutions." />
+  <meta name="description" content="Explore the diverse and premium product portfolio of Taj Middleeast Group, spanning fragrances, high-quality foods, advanced electronics, and sustainable industrial solutions." />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     :root {
-      --premium-dark: #101010;
-      --premium-gold: #D4AF37;
-      --premium-cream: #F7F0E3;
-      --premium-gold-bright: #F2D675;
-      --premium-gold-dark: #B88A2B;
+      --theme-bg: #FFFFFF;
+      --theme-primary: #1a6b3a; /* Taj Green */
+      --theme-secondary: #c0392b; /* Taj Red */
+      --theme-text: #1a1a1a;
+      --theme-text-light: #444444;
+      --theme-accent-soft: #e8f5ee; /* Soft Green */
     }
     .premium-page {
-      background-color: var(--premium-dark);
-      color: var(--premium-cream);
+      background-color: var(--theme-bg);
+      color: var(--theme-text);
       font-family: 'DM Sans', sans-serif;
     }
     .products-hero {
       position: relative;
-      min-height: 70vh;
+      min-height: 60vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 100px 24px;
       overflow: hidden;
+      background: var(--theme-accent-soft);
     }
     .products-hero-bg {
       position: absolute;
@@ -41,12 +43,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.35;
+      opacity: 0.15;
     }
     .products-hero-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, rgba(16,16,16,0.6) 0%, var(--premium-dark) 100%);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
       z-index: 1;
     }
     .products-hero-inner {
@@ -57,11 +59,11 @@
     .premium-label {
       text-transform: uppercase;
       letter-spacing: 0.45em;
-      color: var(--premium-gold);
+      color: var(--theme-secondary);
       font-size: 14px;
       margin-bottom: 24px;
       display: block;
-      font-weight: 600;
+      font-weight: 700;
     }
     .premium-title {
       font-family: 'Playfair Display', serif;
@@ -69,14 +71,15 @@
       line-height: 1.1;
       margin-bottom: 32px;
       font-weight: 700;
+      color: var(--theme-primary);
     }
     .category-nav {
       position: sticky;
-      top: 80px;
+      top: 72px;
       z-index: 50;
-      background: rgba(16,16,16,0.95);
+      background: rgba(255,255,255,0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      border-bottom: 1px solid #eeeeee;
       padding: 20px 0;
       margin-bottom: 60px;
     }
@@ -89,7 +92,7 @@
       flex-wrap: wrap;
     }
     .category-link {
-      color: rgba(232, 221, 201, 0.6);
+      color: var(--theme-text-light);
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
@@ -98,7 +101,7 @@
       transition: color 0.3s ease;
     }
     .category-link:hover, .category-link.active {
-      color: var(--premium-gold);
+      color: var(--theme-primary);
     }
     .products-section {
       padding: 80px 24px;
@@ -107,16 +110,17 @@
     }
     .section-header {
       margin-bottom: 60px;
-      border-left: 4px solid var(--premium-gold);
+      border-left: 4px solid var(--theme-secondary);
       padding-left: 24px;
     }
     .section-header h2 {
       font-family: 'Playfair Display', serif;
       font-size: 40px;
       margin-bottom: 12px;
+      color: var(--theme-primary);
     }
     .section-header p {
-      color: rgba(232, 221, 201, 0.6);
+      color: var(--theme-text-light);
       font-size: 18px;
     }
     .product-grid {
@@ -126,16 +130,17 @@
       margin-bottom: 100px;
     }
     .product-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      border-radius: 1.5rem;
+      background: white;
+      border: 1px solid #eeeeee;
+      border-radius: 8px;
       overflow: hidden;
       transition: all 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
     .product-card:hover {
       transform: translateY(-10px);
-      border-color: var(--premium-gold);
-      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--theme-primary);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
     .product-img-wrap {
       height: 320px;
@@ -143,56 +148,50 @@
       position: relative;
     }
     .product-img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
-    .product-card:hover .product-img {
-      transform: scale(1.1);
-    }
-    .product-info {
-      padding: 32px;
-    }
+    .product-card:hover .product-img { transform: scale(1.1); }
+    .product-info { padding: 32px; }
     .product-tag {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--premium-gold);
+      color: var(--theme-secondary);
       margin-bottom: 12px;
       display: block;
+      font-weight: 700;
     }
     .product-info h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      margin-bottom: 16px;
-      color: white;
+      font-size: 24px; margin-bottom: 16px;
+      color: var(--theme-primary);
     }
     .product-info p {
-      font-size: 15px;
-      line-height: 1.6;
-      color: rgba(232, 221, 201, 0.6);
+      font-size: 15px; line-height: 1.6;
+      color: var(--theme-text-light);
       margin-bottom: 24px;
     }
     .btn-view-div {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--premium-gold);
+      color: var(--theme-primary);
       text-decoration: none;
       font-weight: 700;
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-    . premium-cta {
-      background: #151515;
+    .premium-cta {
+      background: var(--theme-accent-soft);
       padding: 100px 24px;
       text-align: center;
       margin-top: 60px;
     }
     @media (max-width: 768px) {
-      .category-nav { top: 70px; }
+      .category-nav { top: 60px; }
       .category-nav-inner { gap: 16px; }
       .section-header h2 { font-size: 32px; }
     }
@@ -254,8 +253,8 @@
     <div class="products-hero-overlay"></div>
     <div class="products-hero-inner reveal-on-scroll">
       <span class="premium-label">The Taj Collection</span>
-      <h1 class="premium-title">Exceptional Quality <br>Across Every Sector.</h1>
-      <p style="font-size: 20px; color: rgba(232, 221, 201, 0.8); max-width: 700px; margin: 0 auto;">A curated portfolio of innovation, luxury, and industrial excellence.</p>
+      <h1 class="premium-title">Quality Across <br>Every Industry.</h1>
+      <p style="font-size: 20px; color: var(--theme-text-light); max-width: 700px; margin: 0 auto;">A curated portfolio of innovation, heritage, and industrial excellence.</p>
     </div>
   </section>
 
@@ -302,7 +301,7 @@
     </div>
   </section>
 
-  <section class="products-section" id="foods" style="background: #151515;">
+  <section class="products-section" id="foods" style="background: #f9f9f9;">
     <div class="section-header reveal-on-scroll">
       <span class="premium-label">Taj Foods</span>
       <h2>Gourmet Essentials</h2>
@@ -366,7 +365,7 @@
     </div>
   </section>
 
-  <section class="products-section" id="packaging" style="background: #151515;">
+  <section class="products-section" id="packaging" style="background: #f9f9f9;">
     <div class="section-header reveal-on-scroll">
       <span class="premium-label">Taj Packaging</span>
       <h2>Sustainable Solutions</h2>
@@ -430,7 +429,7 @@
     </div>
   </section>
 
-  <section class="products-section" id="recycle" style="background: #151515;">
+  <section class="products-section" id="recycle" style="background: #f9f9f9;">
     <div class="section-header reveal-on-scroll">
       <span class="premium-label">Taj Recycle</span>
       <h2>Resource Recovery</h2>
@@ -465,9 +464,9 @@
   <section class="premium-cta">
     <div class="reveal-on-scroll">
       <span class="premium-label">Enquire Now</span>
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 24px;">Looking for Specific Requirements?</h2>
-      <p style="color: rgba(232, 221, 201, 0.6); max-width: 700px; margin: 0 auto 40px;">Our specialized divisions are ready to support your bulk, custom, or retail needs with precision and care.</p>
-      <a href="contact.html" class="nav-cta" style="padding: 18px 40px; border-radius: 999px;">Contact Sales Team</a>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 24px; color: var(--theme-primary);">Looking for Specific Requirements?</h2>
+      <p style="color: var(--theme-text-light); max-width: 700px; margin: 0 auto 40px;">Our specialized divisions are ready to support your bulk, custom, or retail needs with precision and care.</p>
+      <a href="contact.html" class="btn-premium-theme">Contact Sales Team</a>
     </div>
   </section>
 

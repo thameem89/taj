@@ -3,337 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zivo Perfumes — The Essence of Luxury | Taj Middleeast</title>
-  <meta name="description" content="Zivo Perfumes is a premium fragrance division of Taj Middleeast, specializing in signature scents, luxury oud collections, and master-crafted perfumes." />
+  <title>Zivo Perfumes — Luxury Fragrances | Taj Middleeast</title>
+  <meta name="description" content="Discover Zivo Perfumes, a luxury fragrance house by Taj Middleeast Group. Artisanal scents crafted for elegance, heritage, and a lasting legacy." />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     :root {
-      --zivo-dark: #101010;
-      --zivo-gold: #D4AF37;
-      --zivo-cream: #F7F0E3;
-      --zivo-gold-bright: #F2D675;
-      --zivo-gold-dark: #B88A2B;
+      --theme-bg: #FFFFFF;
+      --theme-primary: #1a6b3a; /* Taj Green */
+      --theme-secondary: #c0392b; /* Taj Red */
+      --theme-text: #1a1a1a;
+      --theme-text-light: #444444;
+      --theme-accent-soft: #e8f5ee; /* Soft Green */
+      --theme-red-soft: #fdf0ef;
     }
-    .zivo-page {
-      background-color: var(--zivo-dark);
-      color: var(--zivo-cream);
+    .premium-page {
+      background-color: var(--theme-bg);
+      color: var(--theme-text);
+      font-family: 'DM Sans', sans-serif;
     }
-    .zivo-hero {
+    .premium-hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 24px;
+      padding: 120px 24px;
       overflow: hidden;
+      background: var(--theme-accent-soft);
     }
-    .zivo-hero-bg {
+    .premium-hero-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
     }
-    .zivo-hero-bg img {
+    .premium-hero-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.45;
+      opacity: 0.15;
     }
-    .zivo-hero-overlay {
+    .premium-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(16,16,16,0.7) 50%, var(--zivo-dark) 100%);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
       z-index: 1;
     }
-    .zivo-hero-glow {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(212,175,55,0.18) 0%, transparent 45%);
-      z-index: 2;
-    }
-    .zivo-hero-inner {
+    .premium-hero-inner {
       position: relative;
       z-index: 10;
       max-width: 900px;
     }
-    .zivo-label {
+    .premium-label {
       text-transform: uppercase;
       letter-spacing: 0.45em;
-      color: var(--zivo-gold);
+      color: var(--theme-secondary);
       font-size: 14px;
       margin-bottom: 24px;
       display: block;
+      font-weight: 700;
     }
-    .zivo-title {
+    .premium-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 8vw, 96px);
+      font-size: clamp(40px, 7vw, 84px);
       line-height: 1.1;
       margin-bottom: 32px;
+      font-weight: 700;
+      color: var(--theme-primary);
     }
-    .zivo-subtitle {
+    .premium-subtitle {
       font-size: clamp(18px, 2vw, 22px);
-      color: rgba(232, 221, 201, 0.8);
-      max-width: 650px;
+      color: var(--theme-text-light);
+      max-width: 700px;
       margin: 0 auto 40px;
       line-height: 1.6;
     }
-    .btn-zivo-gold {
+    .btn-premium-theme {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: linear-gradient(to right, var(--zivo-gold), var(--zivo-gold-bright), var(--zivo-gold-dark));
-      color: black;
+      background: var(--theme-primary);
+      color: white;
       padding: 18px 36px;
-      border-radius: 999px;
+      border-radius: 4px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       font-size: 14px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
-    .btn-zivo-gold:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    .btn-premium-theme:hover {
+      background: var(--theme-secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(192, 57, 43, 0.2);
     }
-    .zivo-section {
+    .premium-section {
       padding: 120px 24px;
       max-width: 1280px;
       margin: 0 auto;
     }
-    .zivo-story-grid {
+    .premium-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 60px;
       align-items: center;
     }
-    .zivo-story-content h2 {
+    .premium-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 5vw, 60px);
+      font-size: clamp(32px, 5vw, 56px);
       line-height: 1.2;
       margin-bottom: 32px;
+      color: var(--theme-primary);
     }
-    .zivo-story-content p {
+    .premium-content p {
       font-size: 18px;
       line-height: 1.8;
-      color: rgba(232, 221, 201, 0.75);
+      color: var(--theme-text-light);
       margin-bottom: 24px;
     }
-    .zivo-story-img-wrap {
+    .premium-img-wrap {
       position: relative;
     }
-    .zivo-story-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -16px;
-      border-radius: 2rem;
-      background: linear-gradient(to bottom right, rgba(212,175,55,0.3), transparent);
-      filter: blur(24px);
-      z-index: 0;
-    }
-    .zivo-story-img {
-      position: relative;
+    .premium-img {
       width: 100%;
-      height: 520px;
+      height: 500px;
       object-fit: cover;
-      border-radius: 2rem;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      z-index: 1;
+      border-radius: 8px;
+      border: 1px solid var(--theme-accent-soft);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
     }
-    .zivo-collections {
-      background-color: var(--zivo-cream);
-      color: var(--zivo-dark);
-    }
-    .zivo-collections-header {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 64px;
-    }
-    .zivo-collections-header .zivo-label {
-      color: var(--zivo-gold-dark);
-    }
-    .zivo-collections-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 5vw, 60px);
-      margin-bottom: 24px;
-    }
-    .zivo-collections-header p {
-      font-size: 18px;
-      color: rgba(0, 0, 0, 0.6);
-    }
-    .zivo-grid {
+    .premium-feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
+      margin-top: 60px;
     }
-    .zivo-card {
+    .premium-card {
       background: white;
-      border-radius: 1.8rem;
+      border: 1px solid #eeeeee;
+      border-radius: 8px;
+      padding: 48px;
+      transition: all 0.3s ease;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .premium-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: var(--theme-primary);
+      transform: scaleX(0);
       transition: transform 0.3s ease;
     }
-    .zivo-card:hover {
+    .premium-card:hover::before {
+      transform: scaleX(1);
+    }
+    .premium-card:hover {
+      border-color: var(--theme-primary);
       transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
-    .zivo-card-img-wrap {
-      position: relative;
-      height: 300px;
-      overflow: hidden;
-    }
-    .zivo-card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.7s ease;
-    }
-    .zivo-card:hover .zivo-card-img {
-      transform: scale(1.1);
-    }
-    .zivo-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    }
-    .zivo-card-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
+    .premium-card-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--theme-accent-soft);
       border-radius: 50%;
-      background: var(--zivo-gold);
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; color: var(--theme-primary);
+      margin-bottom: 32px;
     }
-    .zivo-card-body {
-      padding: 24px;
-    }
-    .zivo-card-body h3 {
+    .premium-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      margin-bottom: 12px;
+      font-size: 24px; margin-bottom: 16px;
+      color: var(--theme-primary);
     }
-    .zivo-card-body p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: rgba(0,0,0,0.6);
+    .premium-card p {
+      font-size: 15px; line-height: 1.7;
+      color: var(--theme-text-light);
     }
-    .zivo-gallery-grid {
+    .premium-gallery-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .premium-gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
-    .gallery-large {
-      grid-column: span 2;
-    }
-    .gallery-img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 1.5rem;
-      border: 1px solid rgba(212, 175, 55, 0.15);
-      transition: transform 0.7s ease;
-    }
+    .gallery-large { grid-column: span 2; }
     .gallery-img-wrap {
       overflow: hidden;
-      border-radius: 1.5rem;
+      border-radius: 8px;
+      height: 400px;
+      border: 1px solid #eeeeee;
+    }
+    .gallery-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
     }
     .gallery-img-wrap:hover .gallery-img {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
-    .zivo-notes {
-      background-color: #151515;
-    }
-    .notes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
-    .note-card {
-      background: var(--zivo-dark);
-      border: 1px solid rgba(212, 175, 55, 0.15);
-      border-radius: 1.8rem;
-      padding: 40px;
+    .premium-cta-section {
       text-align: center;
-      transition: border-color 0.3s ease;
+      background: var(--theme-accent-soft);
+      padding: 120px 24px;
     }
-    .note-card:hover {
-      border-color: rgba(212, 175, 55, 0.5);
+    @media (max-width: 1024px) {
+      .premium-gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    .note-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(to bottom right, var(--zivo-gold), #8C6A1F);
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 24px;
-    }
-    .note-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-    .note-card p {
-      font-size: 16px;
-      color: rgba(232, 221, 201, 0.6);
-      line-height: 1.7;
-    }
-    .zivo-footer-cta {
-      background-color: var(--zivo-cream);
-      color: var(--zivo-dark);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    .zivo-footer-cta .glow {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(212,175,55,0.28), transparent 50%);
-      z-index: 0;
-    }
-    .btn-zivo-dark {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--zivo-dark);
-      color: var(--zivo-cream);
-      padding: 18px 36px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      transition: background 0.3s ease;
-    }
-    .btn-zivo-dark:hover {
-      background: black;
-    }
-    @media (max-width: 768px) {
-      .zivo-gallery-grid {
-        grid-template-columns: 1fr;
-      }
-      .gallery-large {
-        grid-column: span 1;
-      }
-      .gallery-img {
-        height: 300px;
-      }
+    @media (max-width: 640px) {
+      .premium-gallery-grid { grid-template-columns: 1fr; }
+      .gallery-large { grid-column: span 1; }
     }
   </style>
 </head>
-<body class="zivo-page">
+<body class="premium-page">
   <nav>
     <a href="index.html" class="nav-logo">
       <div class="nav-logo-icon"><span>T</span></div>
@@ -376,157 +266,123 @@
         <a href="zivo.html">Zivo Perfumes</a>
       </div>
     </div>
+    <a href="products.html">Our Products</a>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" class="nm-cta">Get in Touch</a>
   </div>
   
-  <section class="zivo-hero">
-    <div class="zivo-hero-bg">
-      <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1800&q=90" alt="Luxury perfume bottle" />
+  <section class="premium-hero">
+    <div class="premium-hero-bg">
+      <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1800&q=90" alt="Luxury fragrance display" />
     </div>
-    <div class="zivo-hero-overlay"></div>
-    <div class="zivo-hero-glow"></div>
-    <div class="zivo-hero-inner reveal-on-scroll">
-      <span class="zivo-label">Zivo Perfumes</span>
-      <h1 class="zivo-title">The Art of <br class="hidden-mobile">Unforgettable Scents.</h1>
-      <p class="zivo-subtitle">Crafted for elegance. Designed for legacy. Discover the essence of Zivo.</p>
-      <a href="#collections" class="btn-zivo-gold">Explore the Collection <span>→</span></a>
-    </div>
-  </section>
-
-  <section class="zivo-section">
-    <div class="zivo-story-grid">
-      <div class="zivo-story-content reveal-on-scroll">
-        <span class="zivo-label">Brand Story</span>
-        <h2>A Legacy of Fragrance</h2>
-        <p>Zivo Perfumes is built on the quiet power of craftsmanship. Every scent is composed with intention, blending rare ingredients, refined notes and a deep respect for traditional perfumery.</p>
-        <p>From premium Oud to warm Amber, Damask Rose and Sandalwood, each creation is designed to feel personal, memorable and timeless — a fragrance that becomes part of one's presence.</p>
-      </div>
-      <div class="zivo-story-img-wrap reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=1100&q=90" alt="Premium perfume craftsmanship" class="zivo-story-img" />
-      </div>
+    <div class="premium-hero-overlay"></div>
+    <div class="premium-hero-inner reveal-on-scroll">
+      <span class="premium-label">Zivo Perfumes</span>
+      <h1 class="premium-title">Luxury Fragrances,<br>Timeless Legacy.</h1>
+      <p class="premium-subtitle">Artisanal scents crafted with the world's most precious ingredients, designed for those who command a presence.</p>
+      <a href="#collection" class="btn-premium-theme">Explore Collection <span>→</span></a>
     </div>
   </section>
 
-  <section id="collections" class="zivo-collections">
-    <div class="zivo-section">
-      <div class="zivo-collections-header reveal-on-scroll">
-        <span class="zivo-label">The Collections</span>
-        <h2>Crafted for Every Signature</h2>
-        <p>Explore a refined selection of fragrances made for identity, celebration and everyday sophistication.</p>
+  <section class="premium-section">
+    <div class="premium-grid">
+      <div class="premium-content reveal-on-scroll">
+        <span class="premium-label">Heritage & Artistry</span>
+        <h2>Crafted for the Extraordinary.</h2>
+        <p>Zivo Perfumes is the pinnacle of olfactory art within the Taj Middleeast Group. Every bottle represents a journey — from the remote fields where rare botanicals are harvested to the master laboratories where our signature blends are perfected.</p>
+        <p>Our fragrances are more than scents; they are invisible signatures that leave a lasting impression of elegance, power, and heritage.</p>
       </div>
-      <div class="zivo-grid">
-        <div class="zivo-card reveal-on-scroll">
-          <div class="zivo-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80" alt="Signature Scents" class="zivo-card-img" />
-            <div class="zivo-card-overlay"></div>
-            <div class="zivo-card-icon">✧</div>
-          </div>
-          <div class="zivo-card-body">
-            <h3>Signature Scents</h3>
-            <p>Modern classics crafted for the contemporary individual who leaves a lasting impression.</p>
-          </div>
-        </div>
-        <div class="zivo-card reveal-on-scroll">
-          <div class="zivo-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=900&q=80" alt="Oud Collections" class="zivo-card-img" />
-            <div class="zivo-card-overlay"></div>
-            <div class="zivo-card-icon">✦</div>
-          </div>
-          <div class="zivo-card-body">
-            <h3>Oud Collections</h3>
-            <p>Deep, intense and traditionally luxurious fragrances inspired by Middle Eastern heritage.</p>
-          </div>
-        </div>
-        <div class="zivo-card reveal-on-scroll">
-          <div class="zivo-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=900&q=80" alt="Luxury Gift Sets" class="zivo-card-img" />
-            <div class="zivo-card-overlay"></div>
-            <div class="zivo-card-icon">🎁</div>
-          </div>
-          <div class="zivo-card-body">
-            <h3>Luxury Gift Sets</h3>
-            <p>Curated fragrance experiences designed for celebrations, milestones and meaningful moments.</p>
-          </div>
-        </div>
-        <div class="zivo-card reveal-on-scroll">
-          <div class="zivo-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1619994403073-2cec844b8e63?auto=format&fit=crop&w=900&q=80" alt="Private Blends" class="zivo-card-img" />
-            <div class="zivo-card-overlay"></div>
-            <div class="zivo-card-icon">💧</div>
-          </div>
-          <div class="zivo-card-body">
-            <h3>Private Blends</h3>
-            <p>Distinctive compositions made for those who prefer rarity, elegance and personal expression.</p>
-          </div>
-        </div>
+      <div class="premium-img-wrap reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=1200&q=90" alt="Master perfumer at work" class="premium-img" />
       </div>
     </div>
   </section>
 
-  <section class="zivo-section">
-    <div class="zivo-collections-header reveal-on-scroll">
-      <span class="zivo-label">Visual Gallery</span>
-      <h2>The Zivo Experience</h2>
-      <p>Atmospheric, elegant and sensory — every detail of Zivo is created to feel premium before the first spray.</p>
+  <section id="collection" class="premium-section" style="background: #f9f9f9;">
+    <div class="premium-gallery-header reveal-on-scroll">
+      <span class="premium-label">Our Pillars</span>
+      <h2>The Zivo Standard</h2>
+      <p style="max-width: 800px; margin: 24px auto; color: var(--theme-text-light);">We adhere to the highest standards of luxury perfumery, ensuring every drop meets the Taj promise of quality.</p>
     </div>
-    <div class="zivo-gallery-grid">
+    <div class="premium-feature-grid">
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">✧</div>
+        <h3>Rare Ingredients</h3>
+        <p>Sourcing the finest Oud, Damask Rose, and Amber from around the world to ensure unmatched depth.</p>
+      </div>
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">❦</div>
+        <h3>Artisanal Blending</h3>
+        <p>Master perfumers meticulously aging each batch to achieve perfect olfactory harmony.</p>
+      </div>
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">⚜</div>
+        <h3>Exquisite Design</h3>
+        <p>Bottles designed to be ornaments of luxury, reflecting the precious nature of the liquid within.</p>
+      </div>
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">♛</div>
+        <h3>Lasting Legacy</h3>
+        <p>High-concentration formulations that ensure a sillage that persists through the day and night.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="premium-section">
+    <div class="premium-grid">
+      <div class="premium-img-wrap reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=90" alt="Signature perfume collection" class="premium-img" />
+      </div>
+      <div class="premium-content reveal-on-scroll">
+        <span class="premium-label">Signature Oud</span>
+        <h2>The Heart of the Orient</h2>
+        <p>Our Signature Oud collection is a tribute to the deep-rooted traditions of the Middle East. Using high-purity agarwood oil, we've created a scent that is both primal and sophisticated.</p>
+        <div style="margin-top: 32px;">
+           <div style="margin-bottom: 24px; border-left: 3px solid var(--theme-secondary); padding-left: 20px;">
+             <h4 style="color: var(--theme-primary); font-family: 'Playfair Display'; font-size: 20px; margin-bottom: 8px;">Top Notes</h4>
+             <p style="font-size: 16px; color: var(--theme-text-light);">Saffron, Bergamot, and Cardamom.</p>
+           </div>
+           <div style="margin-bottom: 24px; border-left: 3px solid var(--theme-secondary); padding-left: 20px;">
+             <h4 style="color: var(--theme-primary); font-family: 'Playfair Display'; font-size: 20px; margin-bottom: 8px;">Heart Notes</h4>
+             <p style="font-size: 16px; color: var(--theme-text-light);">Damask Rose and Jasmine Sambac.</p>
+           </div>
+           <div style="border-left: 3px solid var(--theme-secondary); padding-left: 20px;">
+             <h4 style="color: var(--theme-primary); font-family: 'Playfair Display'; font-size: 20px; margin-bottom: 8px;">Base Notes</h4>
+             <p style="font-size: 16px; color: var(--theme-text-light);">Pure Oud, Ambergris, and Sandalwood.</p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="premium-section">
+    <div class="premium-gallery-header reveal-on-scroll">
+      <span class="premium-label">Gallery</span>
+      <h2>A Visual Scent Story</h2>
+      <p style="max-width: 800px; margin: 24px auto; color: var(--theme-text-light);">Explore the textures, ingredients, and elegance of the Zivo fragrance house.</p>
+    </div>
+    <div class="premium-gallery-grid">
       <div class="gallery-img-wrap gallery-large reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?auto=format&fit=crop&w=900&q=80" alt="Zivo luxury perfume experience" class="gallery-img" />
+        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80" alt="Fragrance display" class="gallery-img" />
       </div>
       <div class="gallery-img-wrap reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=900&q=80" alt="Zivo luxury perfume experience" class="gallery-img" />
+        <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=900&q=80" alt="Bottle detail" class="gallery-img" />
       </div>
       <div class="gallery-img-wrap reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=900&q=80" alt="Zivo luxury perfume experience" class="gallery-img" />
+        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=80" alt="Luxury perfume" class="gallery-img" />
       </div>
       <div class="gallery-img-wrap gallery-large reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80" alt="Zivo luxury perfume experience" class="gallery-img" />
+        <img src="https://images.unsplash.com/photo-1583522684094-b73202f430d8?auto=format&fit=crop&w=900&q=80" alt="Scent extraction" class="gallery-img" />
       </div>
     </div>
   </section>
 
-  <section class="zivo-notes">
-    <div class="zivo-section">
-      <div class="zivo-collections-header reveal-on-scroll">
-        <span class="zivo-label">The Notes</span>
-        <h2>Ingredients of Distinction</h2>
-        <p>The soul of every Zivo fragrance lies in carefully selected notes that create richness, depth and lasting character.</p>
-      </div>
-      <div class="notes-grid">
-        <div class="note-card reveal-on-scroll">
-          <div class="note-icon">✦</div>
-          <h3>Rare Oud</h3>
-          <p>Rich, smoky and deeply luxurious.</p>
-        </div>
-        <div class="note-card reveal-on-scroll">
-          <div class="note-icon">✿</div>
-          <h3>Damask Rose</h3>
-          <p>Soft floral elegance with timeless depth.</p>
-        </div>
-        <div class="note-card reveal-on-scroll">
-          <div class="note-icon">🔥</div>
-          <h3>Pure Amber</h3>
-          <p>Warm, sensual and long-lasting.</p>
-        </div>
-        <div class="note-card reveal-on-scroll">
-          <div class="note-icon">🌿</div>
-          <h3>Sandalwood</h3>
-          <p>Creamy, smooth and grounding.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="zivo-footer-cta zivo-section">
-    <div class="glow"></div>
-    <div class="reveal-on-scroll" style="position: relative; z-index: 1;">
-      <span class="zivo-label" style="color: var(--zivo-gold-dark);">Discover Zivo</span>
-      <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 60px); margin-bottom: 24px;">Find Your Signature Scent</h2>
-      <p style="font-size: 18px; color: rgba(0, 0, 0, 0.6); max-width: 700px; margin: 0 auto 40px;">Step into the world of Zivo Perfumes and experience fragrances crafted for elegance, confidence and unforgettable presence.</p>
-      <a href="contact.html" class="btn-zivo-dark">Contact Us <span>→</span></a>
-    </div>
+  <section class="premium-cta-section reveal-on-scroll">
+    <span class="premium-label">Inquire Now</span>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 60px); margin-bottom: 24px;">Wear the Legacy.</h2>
+    <p style="font-size: 18px; color: var(--theme-text-light); max-width: 700px; margin: 0 auto 40px;">Contact our boutique team for private viewings, corporate gifting, or wholesale inquiries across the GCC.</p>
+    <a href="contact.html" class="btn-premium-theme">Get in Touch <span>→</span></a>
   </section>
 
   <footer>
@@ -580,4 +436,4 @@
   </footer>
   <script src="script.js"></script>
 </body>
-</html>html>
+</html>

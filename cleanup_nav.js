@@ -5,11 +5,7 @@ const files = fs.readdirSync('.').filter(f => f.endsWith('.html'));
 
 const cleanNav = `  <nav>
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon"><span>T</span></div>
-      <div class="nav-logo-text">
-        <strong>Taj Middleeast</strong>
-        <em>Group of Companies</em>
-      </div>
+      <img src="logo.jpeg" alt="Taj Middle East Co." style="max-height: 42px; display: block;">
     </a>
     <ul class="nav-links">
       <li class="nav-item-dropdown">

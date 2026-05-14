@@ -285,8 +285,8 @@
       color: white; margin-bottom: 8px;
     }
 
-    .hero-title .accent { color: #6fcf8e; }
-    .hero-title .line2 { color: #f08070; display: block; }
+    .hero-title .accent { color: white; }
+    .hero-title .line2 { color: white; display: block; }
 
     .hero-subtitle {
       font-size: 12px; font-weight: 600;

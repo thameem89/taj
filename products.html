@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Products — The Taj Collection | Taj Middleeast</title>
+  <meta name="description" content="Explore the diverse and premium product portfolio of Taj Middleeast Group, spanning luxury fragrances, high-quality foods, advanced electronics, and sustainable industrial solutions." />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --premium-dark: #101010;
+      --premium-gold: #D4AF37;
+      --premium-cream: #F7F0E3;
+      --premium-gold-bright: #F2D675;
+      --premium-gold-dark: #B88A2B;
+    }
+    .premium-page {
+      background-color: var(--premium-dark);
+      color: var(--premium-cream);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .products-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px;
+      overflow: hidden;
+    }
+    .products-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .products-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+    .products-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(16,16,16,0.6) 0%, var(--premium-dark) 100%);
+      z-index: 1;
+    }
+    .products-hero-inner {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+    }
+    .premium-label {
+      text-transform: uppercase;
+      letter-spacing: 0.45em;
+      color: var(--premium-gold);
+      font-size: 14px;
+      margin-bottom: 24px;
+      display: block;
+      font-weight: 600;
+    }
+    .premium-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 7vw, 84px);
+      line-height: 1.1;
+      margin-bottom: 32px;
+      font-weight: 700;
+    }
+    .category-nav {
+      position: sticky;
+      top: 80px;
+      z-index: 50;
+      background: rgba(16,16,16,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      padding: 20px 0;
+      margin-bottom: 60px;
+    }
+    .category-nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .category-link {
+      color: rgba(232, 221, 201, 0.6);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+    }
+    .category-link:hover, .category-link.active {
+      color: var(--premium-gold);
+    }
+    .products-section {
+      padding: 80px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-header {
+      margin-bottom: 60px;
+      border-left: 4px solid var(--premium-gold);
+      padding-left: 24px;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      color: rgba(232, 221, 201, 0.6);
+      font-size: 18px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-bottom: 100px;
+    }
+    .product-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--premium-gold);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .product-img-wrap {
+      height: 320px;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.1);
+    }
+    .product-info {
+      padding: 32px;
+    }
+    .product-tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--premium-gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .product-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: white;
+    }
+    .product-info p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(232, 221, 201, 0.6);
+      margin-bottom: 24px;
+    }
+    .btn-view-div {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--premium-gold);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    . premium-cta {
+      background: #151515;
+      padding: 100px 24px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    @media (max-width: 768px) {
+      .category-nav { top: 70px; }
+      .category-nav-inner { gap: 16px; }
+      .section-header h2 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body class="premium-page">
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><span>T</span></div>
+      <div class="nav-logo-text">
+        <strong>Taj Middleeast</strong>
+        <em>Group of Companies</em>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item-dropdown">
+        <a href="divisions.html">Our Divisions ▾</a>
+        <div class="dropdown-menu">
+          <a href="foods.html">Taj Foods</a>
+          <a href="recycle.html">Taj Recycle</a>
+          <a href="opticals.html">Taj Opticals</a>
+          <a href="packaging.html">Taj Packaging</a>
+          <a href="electronics.html">Taj Electronics</a>
+          <a href="zivo.html">Zivo Perfumes</a>
+        </div>
+      </li>
+      <li><a href="products.html">Our Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu">
+    <div class="mobile-dropdown-container">
+      <a class="mobile-dropdown-toggle">Our Divisions</a>
+      <div class="mobile-dropdown-menu">
+        <a href="divisions.html">All Divisions Overview</a>
+        <a href="foods.html">Taj Foods</a>
+        <a href="recycle.html">Taj Recycle</a>
+        <a href="opticals.html">Taj Opticals</a>
+        <a href="packaging.html">Taj Packaging</a>
+        <a href="electronics.html">Taj Electronics</a>
+        <a href="zivo.html">Zivo Perfumes</a>
+      </div>
+    </div>
+    <a href="products.html">Our Products</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nm-cta">Get in Touch</a>
+  </div>
+
+  <section class="products-hero">
+    <div class="products-hero-bg">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1800&q=90" alt="Premium products showcase" />
+    </div>
+    <div class="products-hero-overlay"></div>
+    <div class="products-hero-inner reveal-on-scroll">
+      <span class="premium-label">The Taj Collection</span>
+      <h1 class="premium-title">Exceptional Quality <br>Across Every Sector.</h1>
+      <p style="font-size: 20px; color: rgba(232, 221, 201, 0.8); max-width: 700px; margin: 0 auto;">A curated portfolio of innovation, luxury, and industrial excellence.</p>
+    </div>
+  </section>
+
+  <div class="category-nav">
+    <div class="category-nav-inner">
+      <a href="#foods" class="category-link">Foods</a>
+      <a href="#recycle" class="category-link">Recycle</a>
+      <a href="#opticals" class="category-link">Opticals</a>
+      <a href="#packaging" class="category-link">Packaging</a>
+      <a href="#electronics" class="category-link">Electronics</a>
+      <a href="#zivo" class="category-link">Fragrances</a>
+    </div>
+  </div>
+
+  <section class="products-section" id="zivo">
+    <div class="section-header reveal-on-scroll">
+      <span class="premium-label">Zivo Perfumes</span>
+      <h2>Luxury Fragrances</h2>
+      <p>Artisanal scents crafted for elegance and legacy.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" alt="Signature Oud" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Exclusive</span>
+          <h3>Signature Oud</h3>
+          <p>A deep, mystical blend of rare agarwood and oriental spices.</p>
+          <a href="zivo.html" class="btn-view-div">View Collection →</a>
+        </div>
+      </div>
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=800&q=80" alt="Luxury Gift Sets" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Gift Ideas</span>
+          <h3>Heritage Collection</h3>
+          <p>Curated fragrance sets inspired by Middle Eastern traditions.</p>
+          <a href="zivo.html" class="btn-view-div">View Collection →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="foods" style="background: #151515;">
+    <div class="section-header reveal-on-scroll">
+      <span class="premium-label">Taj Foods</span>
+      <h2>Gourmet Essentials</h2>
+      <p>Premium sourcing for global culinary standards.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1599307767316-776533bb941c?auto=format&fit=crop&w=800&q=80" alt="Premium Saffron" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">A-Grade</span>
+          <h3>Pure Saffron</h3>
+          <p>World-class saffron threads sourced from the finest origins.</p>
+          <a href="foods.html" class="btn-view-div">Explore Foods →</a>
+        </div>
+      </div>
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80" alt="Organic Pulses" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Healthy Living</span>
+          <h3>Organic Grains</h3>
+          <p>Naturally grown pulses and grains for conscious consumers.</p>
+          <a href="foods.html" class="btn-view-div">Explore Foods →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="electronics">
+    <div class="section-header reveal-on-scroll">
+      <span class="premium-label">Taj Electronics</span>
+      <h2>Smart Technologies</h2>
+      <p>Innovation that powers modern existence.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80" alt="Smart Home Hub" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Smart Living</span>
+          <h3>Automation Hubs</h3>
+          <p>Next-gen control systems for integrated home environments.</p>
+          <a href="electronics.html" class="btn-view-div">Tech Specs →</a>
+        </div>
+      </div>
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Components" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Enterprise</span>
+          <h3>Precision Components</h3>
+          <p>High-reliability parts for industrial and consumer tech.</p>
+          <a href="electronics.html" class="btn-view-div">Tech Specs →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="packaging" style="background: #151515;">
+    <div class="section-header reveal-on-scroll">
+      <span class="premium-label">Taj Packaging</span>
+      <h2>Sustainable Solutions</h2>
+      <p>Protecting products, preserving the planet.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?auto=format&fit=crop&w=800&q=80" alt="Eco Boxes" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Eco-Friendly</span>
+          <h3>Bio-Degradable Box</h3>
+          <p>Premium sustainable packaging for high-end retail brands.</p>
+          <a href="packaging.html" class="btn-view-div">View Packaging →</a>
+        </div>
+      </div>
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Industrial Wrap" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Industrial</span>
+          <h3>Performance Wraps</h3>
+          <p>High-strength industrial packaging for global logistics.</p>
+          <a href="packaging.html" class="btn-view-div">View Packaging →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="opticals">
+    <div class="section-header reveal-on-scroll">
+      <span class="premium-label">Taj Opticals</span>
+      <h2>Designer Eyewear</h2>
+      <p>Clarity, comfort, and unmatched style.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80" alt="Luxury Frames" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Designer</span>
+          <h3>Premium Frames</h3>
+          <p>Hand-crafted frames from the world's most iconic designers.</p>
+          <a href="opticals.html" class="btn-view-div">See Frames →</a>
+        </div>
+      </div>
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?auto=format&fit=crop&w=800&q=80" alt="Lenses" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Precision</span>
+          <h3>Advanced Lenses</h3>
+          <p>Custom-engineered lenses for ultimate visual clarity.</p>
+          <a href="opticals.html" class="btn-view-div">See Frames →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="recycle" style="background: #151515;">
+    <div class="section-header reveal-on-scroll">
+      <span class="premium-label">Taj Recycle</span>
+      <h2>Resource Recovery</h2>
+      <p>Turning industrial output into usable value.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=800&q=80" alt="Metal Ingots" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Recovered</span>
+          <h3>Refined Metals</h3>
+          <p>High-purity recycled metals for industrial supply chains.</p>
+          <a href="recycle.html" class="btn-view-div">Recovery Details →</a>
+        </div>
+      </div>
+      <div class="product-card reveal-on-scroll">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80" alt="Recycled Polymers" class="product-img" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Sustainable</span>
+          <h3>Industrial Polymers</h3>
+          <p>Quality recycled plastics for manufacturing sectors.</p>
+          <a href="recycle.html" class="btn-view-div">Recovery Details →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="premium-cta">
+    <div class="reveal-on-scroll">
+      <span class="premium-label">Enquire Now</span>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 24px;">Looking for Specific Requirements?</h2>
+      <p style="color: rgba(232, 221, 201, 0.6); max-width: 700px; margin: 0 auto 40px;">Our specialized divisions are ready to support your bulk, custom, or retail needs with precision and care.</p>
+      <a href="contact.html" class="nav-cta" style="padding: 18px 40px; border-radius: 999px;">Contact Sales Team</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <strong>Taj Middleeast</strong>
+        <em>Group of Companies</em>
+        <p>A trusted multi-industry group serving the Middle East with quality, integrity, and commitment across multiple specialized divisions.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Divisions</div>
+        <ul>
+          <li><a href="foods.html">Taj Foods</a></li>
+          <li><a href="recycle.html">Taj Recycle</a></li>
+          <li><a href="opticals.html">Taj Opticals</a></li>
+          <li><a href="packaging.html">Taj Packaging</a></li>
+          <li><a href="electronics.html">Taj Electronics</a></li>
+          <li><a href="zivo.html">Zivo Perfumes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="portal.html">Distributor Portal</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Taj Middleeast Group. All rights reserved.</p>
+      <div class="footer-dividers">
+        <span class="footer-div-tag">Taj Foods</span>
+        <span class="footer-div-tag">Taj Recycle</span>
+        <span class="footer-div-tag">Taj Opticals</span>
+        <span class="footer-div-tag">Taj Packaging</span>
+        <span class="footer-div-tag">Taj Electronics</span>
+        <span class="footer-div-tag">Zivo Perfumes</span>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

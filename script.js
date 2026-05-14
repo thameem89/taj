@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       setTimeout(() => {
         btn.innerText = 'Message Sent!';
-        btn.style.backgroundColor = '#1a6b3a'; // Green success
+        btn.style.backgroundColor = '#23194e'; // Green success
         btn.style.opacity = '1';
         
         // Reset form

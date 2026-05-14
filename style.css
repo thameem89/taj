@@ -1,9 +1,9 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --green: #1a6b3a;
-      --green-light: #2a8a4e;
-      --green-pale: #e8f5ee;
+      --green: #23194e;
+      --green-light: #382b6e;
+      --green-pale: #e9e7f1;
       --red: #c0392b;
       --red-light: #e74c3c;
       --red-pale: #fdf0ef;
@@ -254,7 +254,7 @@
 
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(105deg, rgba(8,32,17,0.88) 0%, rgba(8,32,17,0.66) 48%, rgba(8,32,17,0.24) 100%);
+      background: linear-gradient(105deg, rgba(18,12,42,0.88) 0%, rgba(18,12,42,0.66) 48%, rgba(18,12,42,0.24) 100%);
     }
 
     .hero-inner {
@@ -444,7 +444,7 @@
       overflow: hidden;
     }
 
-    .div-foods    .division-img-placeholder { background: #e8f5ee; }
+    .div-foods    .division-img-placeholder { background: #e9e7f1; }
     .div-opticals .division-img-placeholder { background: #fdf0ef; }
     .div-packaging .division-img-placeholder { background: #f5f0e8; }
     .div-electronics .division-img-placeholder { background: #eef0f5; }
@@ -758,7 +758,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #0f3d20;
+      background: #120c2a;
       padding: 60px 60px 30px;
       color: white;
     }

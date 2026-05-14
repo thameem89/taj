@@ -3,14 +3,493 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taj Recycle — Sustainable Industrial Solutions | Taj Middleeast</title>
-  <meta name="description" content="Taj Recycle is a leader in industrial recycling, dismantling, and waste management in the Middle East, processing over 1 million tons annually." />
+  <title>Taj Recycle — Industrial Resource Recovery | Taj Middleeast</title>
+  <meta name="description" content="Taj Recycle leads the Middle East in scrap processing, industrial demolition, and circular economy solutions, transforming waste into global resources." />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --rec-slate: #111827;
+      --rec-slate-dark: #0B111C;
+      --rec-orange: #FF8C00;
+      --rec-orange-light: #FFB347;
+      --rec-green: #15803D;
+      --rec-green-light: #22C55E;
+      --rec-gray: #F3F4F6;
+      --rec-text-muted: #94A3B8;
+    }
+
+    .rec-page {
+      background-color: var(--rec-slate);
+      color: white;
+      font-family: 'Archivo', sans-serif;
+    }
+
+    .rec-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 24px;
+      overflow: hidden;
+    }
+
+    .rec-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .rec-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+
+    .rec-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--rec-slate) 0%, rgba(17,24,39,0.9) 50%, rgba(17,24,39,0.55) 100%);
+      z-index: 1;
+    }
+
+    .rec-hero-glow {
+      position: absolute;
+      top: 25%;
+      right: 25%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,140,0,0.15) 0%, transparent 70%);
+      filter: blur(60px);
+      z-index: 1;
+    }
+
+    .rec-hero-inner {
+      position: relative;
+      z-index: 10;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .rec-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid var(--rec-orange);
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--rec-orange-light);
+      margin-bottom: 32px;
+    }
+
+    .rec-title {
+      font-size: clamp(40px, 8vw, 84px);
+      font-weight: 900;
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    .rec-subtitle {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--rec-text-muted);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    .rec-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-rec-orange {
+      background: var(--rec-orange);
+      color: black;
+      padding: 18px 40px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-rec-orange:hover {
+      background: #FFA500;
+      transform: translateY(-2px);
+    }
+
+    .btn-rec-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      padding: 18px 40px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+    }
+
+    .btn-rec-outline:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .rec-hero-visuals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .rec-visual-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 32px;
+      backdrop-filter: blur(10px);
+    }
+
+    .rec-visual-card.green {
+      background: rgba(21,128,61,0.2);
+      border-color: rgba(34,197,94,0.2);
+      margin-top: 48px;
+    }
+
+    .rec-visual-card.orange {
+      background: var(--rec-orange);
+      color: black;
+      margin-top: -16px;
+    }
+
+    .rec-visual-card h3 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .rec-visual-card p {
+      font-size: 15px;
+      opacity: 0.8;
+      font-weight: 600;
+    }
+
+    .rec-stats-strip {
+      background: var(--rec-slate-dark);
+      padding: 80px 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .rec-stats-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .rec-stat-box {
+      background: var(--rec-slate);
+      border-left: 6px solid var(--rec-orange);
+      padding: 40px;
+    }
+
+    .rec-stat-box h2 {
+      font-size: 64px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .rec-stat-box .label {
+      color: var(--rec-orange);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .rec-stat-box .desc {
+      color: var(--rec-text-muted);
+      font-size: 16px;
+    }
+
+    .rec-section {
+      padding: 120px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .rec-section-header {
+      max-width: 800px;
+      margin-bottom: 80px;
+    }
+
+    .rec-tag {
+      color: var(--rec-orange);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: 14px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .rec-heading {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .rec-text {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--rec-text-muted);
+    }
+
+    .rec-services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .rec-service-card {
+      background: var(--rec-slate-dark);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .rec-service-img {
+      height: 320px;
+      overflow: hidden;
+    }
+
+    .rec-service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: 0.5s ease;
+    }
+
+    .rec-service-card:hover .rec-service-img img {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .rec-service-body {
+      padding: 48px;
+    }
+
+    .rec-service-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--rec-orange);
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+
+    .rec-service-body h3 {
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .rec-cycle-section {
+      background: var(--rec-gray);
+      color: var(--rec-slate);
+    }
+
+    .rec-cycle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .rec-cycle-card {
+      background: white;
+      padding: 48px;
+      border: 1px solid #E5E7EB;
+      position: relative;
+    }
+
+    .rec-cycle-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--rec-green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+
+    .rec-cycle-num {
+      position: absolute;
+      top: 48px;
+      right: 48px;
+      font-size: 64px;
+      font-weight: 900;
+      color: #F3F4F6;
+    }
+
+    .rec-cycle-card h3 {
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .rec-safety {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .rec-check-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .rec-check-item {
+      display: flex;
+      gap: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+    }
+
+    .rec-check-item span {
+      color: #4ade80;
+    }
+
+    .rec-safety-img-wrap {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      background: var(--rec-slate);
+    }
+
+    .rec-safety-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .rec-safety-floating {
+      position: absolute;
+      left: 32px;
+      bottom: 32px;
+      right: 32px;
+      background: rgba(11,17,28,0.95);
+      border-left: 6px solid var(--rec-orange);
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .rec-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .rec-gallery-item {
+      background: var(--rec-slate-dark);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .rec-gallery-img {
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .rec-gallery-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: 0.5s ease;
+    }
+
+    .rec-gallery-item:hover .rec-gallery-img img {
+      transform: scale(1.1);
+    }
+
+    .rec-gallery-caption {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .rec-cta-banner {
+      background: var(--rec-slate-dark);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .rec-cta-content {
+      padding: 80px;
+    }
+
+    .rec-cta-img-wrap {
+      position: relative;
+    }
+
+    .rec-cta-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 1024px) {
+      .rec-hero-inner, .rec-stats-grid, .rec-services-grid, .rec-cycle-grid, .rec-safety, .rec-gallery-grid, .rec-cta-banner {
+        grid-template-columns: 1fr;
+      }
+      .rec-hero-visuals {
+        display: none;
+      }
+      .rec-cta-content {
+        padding: 40px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="rec-page">
   <nav>
     <a href="index.html" class="nav-logo">
       <div class="nav-logo-icon"><span>T</span></div>
@@ -57,74 +536,198 @@
     <a href="contact.html" class="nm-cta">Get in Touch</a>
   </div>
   
-  <div class="page-hero reveal-on-scroll">
-    <div class="page-hero-bg">
-      <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=85" alt="Industrial recycling facility" />
-      <div class="hero-overlay"></div>
+  <section class="rec-hero">
+    <div class="rec-hero-bg">
+      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=90" alt="Heavy industrial demolition site" />
     </div>
-    <div class="page-hero-inner">
-      <div class="section-label" style="color: white; opacity: 0.8;">Industrial Excellence</div>
-      <h1 class="page-hero-title">Taj Recycle</h1>
-      <p class="page-hero-desc">Transforming waste into resources through innovative industrial solutions.</p>
-    </div>
-  </div>
-
-  <div class="page-content reveal-on-scroll">
-    <div class="section-label">Overview</div>
-    <h2>Leading the Circular Economy</h2>
-    <p>Taj Recycle is a premier division of the Taj Middleeast Group, recognized as one of the largest industrial scrap processors and waste management providers in the region. We are committed to supporting a sustainable future by transforming industrial waste into valuable resources.</p>
-    <p>Aligned with regional sustainability goals, our operations are designed to maximize resource recovery while minimizing environmental impact. We process over 1 million tons of waste annually across our state-of-the-art facilities.</p>
-    
-    <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;">
-      <div class="feature-item">
-        <h4 style="color: var(--green);">Dismantling & Demolition</h4>
-        <p>Engineering-driven services for industrial sites, factories, and civil structures, from planning to site clearance.</p>
-      </div>
-      <div class="feature-item">
-        <h4 style="color: var(--green);">Scrap Processing</h4>
-        <p>Expert collection and sorting of ferrous and non-ferrous metals, plastics, and non-metallic scrap.</p>
-      </div>
-      <div class="feature-item">
-        <h4 style="color: var(--green);">Circular Solutions</h4>
-        <p>End-to-end waste management programs that convert industrial byproducts into raw materials.</p>
-      </div>
-      <div class="feature-item">
-        <h4 style="color: var(--green);">Integrated Logistics</h4>
-        <p>A dedicated fleet and logistics network ensuring efficient transportation of materials across the GCC.</p>
-      </div>
-    </div>
-
-    <h3>Our Core Capabilities</h3>
-    <ul>
-      <li><strong>Industrial Demolition:</strong> Safe and efficient decommissioning of large-scale industrial plants.</li>
-      <li><strong>Metal Recycling:</strong> High-precision processing of steel, copper, aluminum, and brass.</li>
-      <li><strong>Sustainable Waste Management:</strong> Customized programs for oil & gas, petrochemical, and manufacturing sectors.</li>
-      <li><strong>Logistics Excellence:</strong> Reliable collection and transportation powered by our proprietary network.</li>
-    </ul>
-    
-    <br/>
-    <div class="visual-gallery reveal-on-scroll" style="margin-top: 40px; margin-bottom: 60px;">
-      <div class="section-label">Visual Insights</div>
-      <h3>Industrial Impact</h3>
-      <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-        <div class="gallery-item" style="border-radius: 12px; overflow: hidden; height: 250px; box-shadow: var(--shadow-sm);">
-          <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Large scale scrap metal processing">
+    <div class="rec-hero-overlay"></div>
+    <div class="rec-hero-glow"></div>
+    <div class="rec-hero-inner">
+      <div class="rec-hero-content reveal-on-scroll">
+        <div class="rec-badge">
+          <span>♻</span> Industrial Recycling & Resource Recovery
         </div>
-        <div class="gallery-item" style="border-radius: 12px; overflow: hidden; height: 250px; box-shadow: var(--shadow-sm);">
-          <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Industrial dismantling and site clearance">
+        <h1 class="rec-title">Transforming Industrial Waste into Global Resources.</h1>
+        <p class="rec-subtitle">Leading the Middle East in scrap processing and industrial demolition with a focus on the circular economy.</p>
+        <div class="rec-actions">
+          <a href="contact.html" class="btn-rec-orange">Enquire for Services →</a>
+          <a href="#stats" class="btn-rec-outline">Our Impact</a>
         </div>
-        <div class="gallery-item" style="border-radius: 12px; overflow: hidden; height: 250px; box-shadow: var(--shadow-sm);">
-          <img src="https://images.unsplash.com/photo-1605600611284-195205e81a24?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Heavy duty logistics for recycling operations">
+      </div>
+      <div class="rec-hero-visuals reveal-on-scroll">
+        <div class="rec-visual-card">
+          <span style="font-size: 40px; color: var(--rec-orange);">👷</span>
+          <h3>SAFE</h3>
+          <p>Safety-first demolition and site handling.</p>
+        </div>
+        <div class="rec-visual-card green">
+          <span style="font-size: 40px; color: #4ade80;">🌿</span>
+          <h3>GREEN</h3>
+          <p>Circular economy focused material recovery.</p>
+        </div>
+        <div class="rec-visual-card orange">
+          <span style="font-size: 40px;">🏭</span>
+          <h3>SCALE</h3>
+          <p>Built for heavy industrial operations.</p>
+        </div>
+        <div class="rec-visual-card">
+          <span style="font-size: 40px; color: #4ade80;">🛡</span>
+          <h3>TRUST</h3>
+          <p>Compliance-led project execution.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="cta-box" style="background: #f6f8f6; padding: 40px; border-radius: 12px; border-left: 4px solid var(--green);">
-      <h4>Partner with Taj Recycle</h4>
-      <p>Interested in our industrial recycling or demolition services? Our team of experts is ready to help you optimize your waste management processes.</p>
-      <a href="contact.html" class="btn-primary" style="background: var(--green); border-color: var(--green); color: white; margin-top: 15px;">Enquire for Services</a>
+  <section id="stats" class="rec-stats-strip">
+    <div class="rec-stats-grid">
+      <div class="rec-stat-box reveal-on-scroll">
+        <h2>1M+</h2>
+        <span class="label">Tons</span>
+        <p class="desc">Processed Annually</p>
+      </div>
+      <div class="rec-stat-box reveal-on-scroll">
+        <h2>15+</h2>
+        <span class="label">Years</span>
+        <p class="desc">Industrial Expertise</p>
+      </div>
+      <div class="rec-stat-box reveal-on-scroll">
+        <h2 style="font-size: 48px; margin-top: 10px;">ZERO-WASTE</h2>
+        <span class="label">Goal</span>
+        <p class="desc">Driving the Circular Economy</p>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="rec-section">
+    <div class="rec-section-header reveal-on-scroll">
+      <span class="rec-tag">Core Services</span>
+      <h2 class="rec-heading">Industrial Solutions Built for Scale</h2>
+      <p class="rec-text">Taj Recycle delivers end-to-end support for heavy industries — from controlled dismantling to resource recovery and material processing.</p>
+    </div>
+    <div class="rec-services-grid">
+      <div class="rec-service-card reveal-on-scroll">
+        <div class="rec-service-img">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=90" alt="Dismantling & Demolition" />
+        </div>
+        <div class="rec-service-body">
+          <div class="rec-service-icon">🔨</div>
+          <h3>Dismantling & Demolition</h3>
+          <p class="rec-text">Engineering-driven site clearance, factory decommissioning, structural dismantling, and heavy machinery removal for industrial projects.</p>
+        </div>
+      </div>
+      <div class="rec-service-card reveal-on-scroll">
+        <div class="rec-service-img">
+          <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=90" alt="Scrap Processing" />
+        </div>
+        <div class="rec-service-body">
+          <div class="rec-service-icon">⚙</div>
+          <h3>Scrap Processing</h3>
+          <p class="rec-text">Advanced sorting, handling, and processing of ferrous, non-ferrous, and non-metallic materials for reuse and resale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rec-cycle-section">
+    <div class="rec-section">
+      <div class="rec-section-header reveal-on-scroll" style="text-align: center; margin: 0 auto 80px;">
+        <span class="rec-tag" style="color: var(--rec-green);">The Circular Economy</span>
+        <h2 class="rec-heading">Collect → Process → Re-use</h2>
+        <p class="rec-text">We help industries move away from waste-heavy operations by recovering valuable materials and redirecting them into productive use.</p>
+      </div>
+      <div class="rec-cycle-grid">
+        <div class="rec-cycle-card reveal-on-scroll">
+          <div class="rec-cycle-icon">🚚</div>
+          <span class="rec-cycle-num">01</span>
+          <h3>Collect</h3>
+          <p class="rec-text">Industrial scrap, machinery, metals, and recyclable materials are collected safely.</p>
+        </div>
+        <div class="rec-cycle-card reveal-on-scroll">
+          <div class="rec-cycle-icon">🏭</div>
+          <span class="rec-cycle-num">02</span>
+          <h3>Process</h3>
+          <p class="rec-text">Materials are sorted, graded, processed, and prepared for reuse.</p>
+        </div>
+        <div class="rec-cycle-card reveal-on-scroll">
+          <div class="rec-cycle-icon">🔄</div>
+          <span class="rec-cycle-num">03</span>
+          <h3>Re-use</h3>
+          <p class="rec-text">Recovered resources are redirected into productive industrial supply chains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rec-section">
+    <div class="rec-safety">
+      <div class="rec-safety-content reveal-on-scroll">
+        <span class="rec-tag">Safety & Compliance</span>
+        <h2 class="rec-heading">Safety First. Every Site. Every Shift.</h2>
+        <p class="rec-text">Taj Recycle follows safety-first protocols across demolition, dismantling, material movement, and recycling operations. Every project is planned with risk control, compliance, and operational discipline at the center.</p>
+        <div class="rec-check-list">
+          <div class="rec-check-item"><span>✔</span> <p>Site-specific safety planning</p></div>
+          <div class="rec-check-item"><span>✔</span> <p>Trained industrial workforce</p></div>
+          <div class="rec-check-item"><span>✔</span> <p>Compliant logistics handling</p></div>
+          <div class="rec-check-item"><span>✔</span> <p>Controlled demolition protocols</p></div>
+          <div class="rec-check-item"><span>✔</span> <p>International quality standards</p></div>
+          <div class="rec-check-item"><span>✔</span> <p>Responsible material documentation</p></div>
+        </div>
+      </div>
+      <div class="rec-safety-img-wrap reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=90" alt="Industrial safety operations" class="rec-safety-img" />
+        <div class="rec-safety-floating">
+          <span style="font-size: 40px; color: var(--rec-orange);">⚠</span>
+          <div>
+            <h3 style="font-size: 20px; font-weight: 900; text-transform: uppercase;">Controlled Operations</h3>
+            <p style="color: var(--rec-text-muted); font-size: 14px;">Risk-managed industrial project execution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rec-section">
+    <div class="rec-section-header reveal-on-scroll">
+      <span class="rec-tag">Industrial Gallery</span>
+      <h2 class="rec-heading">Built for Heavy Industry</h2>
+      <p class="rec-text">A visual snapshot of large-scale material handling, industrial recycling, heavy equipment, and demolition environments.</p>
+    </div>
+    <div class="rec-gallery-grid">
+      <div class="rec-gallery-item reveal-on-scroll">
+        <div class="rec-gallery-img">
+          <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=900&q=90" alt="Industrial Scrap Yard" />
+        </div>
+        <div class="rec-gallery-caption">Industrial Scrap Yard <span>→</span></div>
+      </div>
+      <div class="rec-gallery-item reveal-on-scroll">
+        <div class="rec-gallery-img">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=90" alt="Heavy Excavator Operations" />
+        </div>
+        <div class="rec-gallery-caption">Heavy Excavator <span>→</span></div>
+      </div>
+      <div class="rec-gallery-item reveal-on-scroll">
+        <div class="rec-gallery-img">
+          <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=900&q=90" alt="Recycling Plant" />
+        </div>
+        <div class="rec-gallery-caption">Recycling Plant <span>→</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rec-section" style="padding-bottom: 120px;">
+    <div class="rec-cta-banner reveal-on-scroll">
+      <div class="rec-cta-content">
+        <span class="rec-tag">Start Your Industrial Project</span>
+        <h2 class="rec-heading">Move Waste. Recover Value. Build Responsibly.</h2>
+        <p class="rec-text" style="margin-bottom: 40px;">Speak to Taj Recycle for industrial demolition, scrap processing, material recovery, and circular economy solutions built for serious scale.</p>
+        <a href="contact.html" class="btn-rec-orange">Contact Form →</a>
+      </div>
+      <div class="rec-cta-img-wrap">
+        <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=1200&q=90" alt="Recycling plant industrial facility" class="rec-cta-img" />
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-top">

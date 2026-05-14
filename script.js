@@ -89,31 +89,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile Dropdown Toggle
-  const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
-  const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
-  if (mobileDropdownToggle && mobileDropdownMenu) {
-    mobileDropdownToggle.addEventListener('click', () => {
-      mobileDropdownMenu.classList.toggle('open');
-      mobileDropdownToggle.classList.toggle('open');
-    });
-  }
+  // Mobile Dropdown Toggles (Multiple support)
+  const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-container');
+  mobileDropdowns.forEach(container => {
+    const toggle = container.querySelector('.mobile-dropdown-toggle');
+    const menu = container.querySelector('.mobile-dropdown-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.classList.toggle('open');
+      });
+    }
+  });
 
-  // Desktop Dropdown Click Support
-  const desktopDropdown = document.querySelector('.nav-item-dropdown');
-  const dropdownToggleLink = desktopDropdown ? desktopDropdown.querySelector('a') : null;
-  
-  if (desktopDropdown && dropdownToggleLink) {
-    dropdownToggleLink.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent navigating to divisions.html, making it a pure dropdown toggle
-      desktopDropdown.classList.toggle('active-dropdown');
-    });
+  // Desktop Dropdown Click Support (Multiple support)
+  const desktopDropdowns = document.querySelectorAll('.nav-item-dropdown');
+  desktopDropdowns.forEach(dropdown => {
+    const toggleLink = dropdown.querySelector('a');
+    if (toggleLink) {
+      toggleLink.addEventListener('click', (e) => {
+        // If it's a mobile device or if we want click-to-open on desktop
+        if (window.innerWidth <= 1024 || !dropdown.matches(':hover')) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdown.classList.toggle('active-dropdown');
+        }
+      });
+    }
+  });
 
-    // Close dropdown if clicked outside
-    document.addEventListener('click', (e) => {
-      if (!desktopDropdown.contains(e.target)) {
-        desktopDropdown.classList.remove('active-dropdown');
+  // Close dropdowns if clicked outside
+  document.addEventListener('click', (e) => {
+    desktopDropdowns.forEach(d => d.classList.remove('active-dropdown'));
+    mobileDropdowns.forEach(container => {
+      if (!container.contains(e.target)) {
+        const menu = container.querySelector('.mobile-dropdown-menu');
+        const toggle = container.querySelector('.mobile-dropdown-toggle');
+        if (menu) menu.classList.remove('open');
+        if (toggle) toggle.classList.remove('open');
       }
     });
-  }
+  });
 });

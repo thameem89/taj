@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmetics — Taj Middleeast</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --theme-bg: #FFFFFF;
+      --theme-primary: #1a6b3a;
+      --theme-secondary: #c0392b;
+      --theme-text: #1a1a1a;
+      --theme-text-light: #444444;
+      --theme-accent-soft: #e8f5ee;
+    }
+    .product-page-hero {
+      background: var(--theme-accent-soft);
+      padding: 100px 24px 60px;
+      text-align: center;
+    }
+    .product-page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: var(--theme-primary);
+      margin-bottom: 16px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 30px;
+      padding: 60px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product-item {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      border-color: var(--theme-primary);
+    }
+    .product-img-box {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    .product-img-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .product-name {
+      font-weight: 600;
+      color: var(--theme-text);
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><span>T</span></div>
+      <div class="nav-logo-text">
+        <strong>Taj Middleeast</strong>
+        <em>Group of Companies</em>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item-dropdown">
+        <a href="divisions.html">Our Divisions ▾</a>
+        <div class="dropdown-menu">
+          <a href="foods.html">Taj Foods</a>
+          <a href="recycle.html">Taj Recycle</a>
+          <a href="opticals.html">Taj Opticals</a>
+          <a href="packaging.html">Taj Packaging</a>
+          <a href="electronics.html">Taj Electronics</a>
+          <a href="zivo.html">Zivo Perfumes</a>
+        </div>
+      </li>
+      <li class="nav-item-dropdown">
+        <a href="products.html">Our Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products-foods.html">Foods & Beverages</a>
+          <a href="products-cleaning.html">Cleaning Products</a>
+          <a href="products-cosmetics.html">Cosmetics</a>
+          <a href="products-diapers.html">Diapers & Tissues</a>
+          <a href="products-household.html">Household Items</a>
+        </div>
+      </li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <section class="product-page-hero">
+    <h1>Cosmetics</h1>
+    <p>Premium quality products sourced and distributed by Taj Middleeast.</p>
+  </section>
+
+  <div class="product-grid">
+    
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Cinthol.jpg" alt="Cinthol" loading="lazy">
+      </div>
+      <div class="product-name">Cinthol</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Clear.jpg" alt="Clear" loading="lazy">
+      </div>
+      <div class="product-name">Clear</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Cleopatra.jpg" alt="Cleopatra" loading="lazy">
+      </div>
+      <div class="product-name">Cleopatra</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Closeup.jpg" alt="Closeup" loading="lazy">
+      </div>
+      <div class="product-name">Closeup</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Colgate.jpg" alt="Colgate" loading="lazy">
+      </div>
+      <div class="product-name">Colgate</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Dettol.jpg" alt="Dettol" loading="lazy">
+      </div>
+      <div class="product-name">Dettol</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Dove.png" alt="Dove" loading="lazy">
+      </div>
+      <div class="product-name">Dove</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Enchanter.jpg" alt="Enchanter" loading="lazy">
+      </div>
+      <div class="product-name">Enchanter</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/FairHandsom.jpg" alt="FairHandsom" loading="lazy">
+      </div>
+      <div class="product-name">FairHandsom</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/FairLovely.jpg" alt="FairLovely" loading="lazy">
+      </div>
+      <div class="product-name">FairLovely</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Gillette.jpg" alt="Gillette" loading="lazy">
+      </div>
+      <div class="product-name">Gillette</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Head  Shoulders.jpg" alt="Head  Shoulders" loading="lazy">
+      </div>
+      <div class="product-name">Head  Shoulders</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Himalaya.jpg" alt="Himalaya" loading="lazy">
+      </div>
+      <div class="product-name">Himalaya</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Imperial.jpg" alt="Imperial" loading="lazy">
+      </div>
+      <div class="product-name">Imperial</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Jergens.jpg" alt="Jergens" loading="lazy">
+      </div>
+      <div class="product-name">Jergens</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Johnson.jpg" alt="Johnson" loading="lazy">
+      </div>
+      <div class="product-name">Johnson</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Lifebuoy.jpg" alt="Lifebuoy" loading="lazy">
+      </div>
+      <div class="product-name">Lifebuoy</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Lux.jpg" alt="Lux" loading="lazy">
+      </div>
+      <div class="product-name">Lux</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Nivea.jpg" alt="Nivea" loading="lazy">
+      </div>
+      <div class="product-name">Nivea</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Palmolive.jpg" alt="Palmolive" loading="lazy">
+      </div>
+      <div class="product-name">Palmolive</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Pantene.jpg" alt="Pantene" loading="lazy">
+      </div>
+      <div class="product-name">Pantene</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Parachute.jpg" alt="Parachute" loading="lazy">
+      </div>
+      <div class="product-name">Parachute</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Pepsodent.jpg" alt="Pepsodent" loading="lazy">
+      </div>
+      <div class="product-name">Pepsodent</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Pert Plus.jpg" alt="Pert Plus" loading="lazy">
+      </div>
+      <div class="product-name">Pert Plus</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Rexona.jpg" alt="Rexona" loading="lazy">
+      </div>
+      <div class="product-name">Rexona</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Signal.jpg" alt="Signal" loading="lazy">
+      </div>
+      <div class="product-name">Signal</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Silvkrin.jpg" alt="Silvkrin" loading="lazy">
+      </div>
+      <div class="product-name">Silvkrin</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Sunsilk.jpg" alt="Sunsilk" loading="lazy">
+      </div>
+      <div class="product-name">Sunsilk</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Vaseline.jpg" alt="Vaseline" loading="lazy">
+      </div>
+      <div class="product-name">Vaseline</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Vatica.jpg" alt="Vatica" loading="lazy">
+      </div>
+      <div class="product-name">Vatica</div>
+    </div>
+    <div class="product-item">
+      <div class="product-img-box">
+        <img src="taj_products/cosmetics/Vicks.jpg" alt="Vicks" loading="lazy">
+      </div>
+      <div class="product-name">Vicks</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <strong>Taj Middleeast</strong>
+        <em>Group of Companies</em>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Divisions</div>
+        <ul>
+          <li><a href="foods.html">Taj Foods</a></li>
+          <li><a href="recycle.html">Taj Recycle</a></li>
+          <li><a href="opticals.html">Taj Opticals</a></li>
+          <li><a href="packaging.html">Taj Packaging</a></li>
+          <li><a href="electronics.html">Taj Electronics</a></li>
+          <li><a href="zivo.html">Zivo Perfumes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

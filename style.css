@@ -768,15 +768,12 @@
       gap: 60px; margin-bottom: 50px;
     }
 
-    .footer-brand strong {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; display: block; margin-bottom: 4px;
-    }
-
-    .footer-brand em {
-      font-style: normal; font-size: 10px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--red); display: block;
+    .footer-logo-img {
+      max-height: 50px;
       margin-bottom: 16px;
+      filter: grayscale(100%) invert(100%) brightness(200%);
+      mix-blend-mode: screen;
+      display: block;
     }
 
     .footer-brand p {

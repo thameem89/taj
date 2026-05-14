@@ -158,8 +158,7 @@ const template = `<!DOCTYPE html>
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <strong>Taj Middleeast</strong>
-        <em>Group of Companies</em>
+        <img src="logo.jpeg" alt="Taj Middle East Co." class="footer-logo-img">
       </div>
     </div>
   </footer>

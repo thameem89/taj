@@ -3,14 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taj Electronics — Smart Solutions & Reliable Tech | Taj Middleeast</title>
-  <meta name="description" content="Taj Electronics is a leading distributor of high-quality consumer electronics, smart home systems, and enterprise hardware solutions across the GCC." />
+  <title>Taj Electronics — Premium Smart Living & Enterprise Technology | Taj Middleeast</title>
+  <meta name="description" content="Taj Electronics provides future-ready smart home solutions, high-precision electronic components, and enterprise-grade technology supply across the Middle East." />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --premium-dark: #101010;
+      --premium-gold: #D4AF37;
+      --premium-cream: #F7F0E3;
+      --premium-gold-bright: #F2D675;
+      --premium-gold-dark: #B88A2B;
+    }
+    .premium-page {
+      background-color: var(--premium-dark);
+      color: var(--premium-cream);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .premium-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      overflow: hidden;
+    }
+    .premium-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .premium-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+    .premium-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(16,16,16,0.7) 50%, var(--premium-dark) 100%);
+      z-index: 1;
+    }
+    .premium-hero-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(212,175,55,0.15) 0%, transparent 45%);
+      z-index: 2;
+    }
+    .premium-hero-inner {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+    }
+    .premium-label {
+      text-transform: uppercase;
+      letter-spacing: 0.45em;
+      color: var(--premium-gold);
+      font-size: 14px;
+      margin-bottom: 24px;
+      display: block;
+      font-weight: 600;
+    }
+    .premium-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 7vw, 84px);
+      line-height: 1.1;
+      margin-bottom: 32px;
+      font-weight: 700;
+    }
+    .premium-subtitle {
+      font-size: clamp(18px, 2vw, 22px);
+      color: rgba(232, 221, 201, 0.8);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    .btn-premium-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(to right, var(--premium-gold), var(--premium-gold-bright), var(--premium-gold-dark));
+      color: black;
+      padding: 18px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .btn-premium-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    }
+    .premium-section {
+      padding: 120px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .premium-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+    .premium-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.2;
+      margin-bottom: 32px;
+      color: white;
+    }
+    .premium-content p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(232, 221, 201, 0.7);
+      margin-bottom: 24px;
+    }
+    .premium-img-wrap {
+      position: relative;
+    }
+    .premium-img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .premium-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .premium-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      border-radius: 2rem;
+      padding: 48px;
+      transition: all 0.3s ease;
+    }
+    .premium-card:hover {
+      border-color: var(--premium-gold);
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-10px);
+    }
+    .premium-card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--premium-gold), #8C6A1F);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: black;
+      margin-bottom: 32px;
+    }
+    .premium-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: white;
+    }
+    .premium-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(232, 221, 201, 0.6);
+    }
+    .premium-gallery-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .premium-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .gallery-large {
+      grid-column: span 2;
+    }
+    .gallery-img-wrap {
+      overflow: hidden;
+      border-radius: 1.5rem;
+      height: 400px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .gallery-img-wrap:hover .gallery-img {
+      transform: scale(1.1);
+    }
+    .premium-cta-section {
+      text-align: center;
+      background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.05));
+    }
+    @media (max-width: 1024px) {
+      .premium-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .premium-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-large {
+        grid-column: span 1;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="premium-page">
   <nav>
     <a href="index.html" class="nav-logo">
       <div class="nav-logo-icon"><span>T</span></div>
@@ -57,74 +270,118 @@
     <a href="contact.html" class="nm-cta">Get in Touch</a>
   </div>
   
-  <div class="page-hero reveal-on-scroll">
-    <div class="page-hero-bg">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85" alt="Advanced electronics and technology" />
-      <div class="hero-overlay"></div>
+  <section class="premium-hero">
+    <div class="premium-hero-bg">
+      <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1800&q=90" alt="Futuristic smart home technology" />
     </div>
-    <div class="page-hero-inner">
-      <div class="section-label" style="color: white; opacity: 0.8;">Smart Tech & Innovation</div>
-      <h1 class="page-hero-title">Taj Electronics</h1>
-      <p class="page-hero-desc">Connecting the Middle East with the world's most reliable and advanced technology solutions.</p>
+    <div class="premium-hero-overlay"></div>
+    <div class="premium-hero-glow"></div>
+    <div class="premium-hero-inner reveal-on-scroll">
+      <span class="premium-label">Taj Electronics</span>
+      <h1 class="premium-title">Powering the Future <br>of Smart Living.</h1>
+      <p class="premium-subtitle">From advanced components to integrated smart home solutions—bringing the world's best technology to the Middle East.</p>
+      <a href="#solutions" class="btn-premium-gold">Explore Solutions <span>→</span></a>
     </div>
-  </div>
+  </section>
 
-  <div class="page-content reveal-on-scroll">
-    <div class="section-label">Future Ready</div>
-    <h2>Empowering Modern Lifestyles</h2>
-    <p>Taj Electronics is a leading name in the distribution and supply of high-performance electronics across the GCC. We bridge the gap between world-class technology manufacturers and the regional market, delivering everything from consumer electronics to complex enterprise hardware.</p>
-    <p>Our commitment to quality ensures that every product we distribute is backed by industry-leading reliability and comprehensive technical support, helping homes and businesses stay connected and efficient.</p>
-    
-    <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;">
-      <div class="feature-item">
-        <h4 style="color: #4682b4;">Smart Ecosystems</h4>
-        <p>Integrated home automation and smart office solutions that enhance comfort, security, and energy efficiency.</p>
+  <section class="premium-section">
+    <div class="premium-grid">
+      <div class="premium-content reveal-on-scroll">
+        <span class="premium-label">Innovation & Connectivity</span>
+        <h2>Designed to Work Together.</h2>
+        <p>Taj Electronics delivers future-ready solutions across homes, workplaces, industries, and large-scale enterprise projects. Our ecosystem is selected for seamless performance, energy efficiency, and long-term reliability.</p>
+        <p>Whether you are building a smarter home or sourcing precision components, we provide the infrastructure that powers modern existence.</p>
       </div>
-      <div class="feature-item">
-        <h4 style="color: #4682b4;">Enterprise Hardware</h4>
-        <p>Robust IT infrastructure and networking components designed for the demanding needs of modern businesses.</p>
-      </div>
-      <div class="feature-item">
-        <h4 style="color: #4682b4;">Consumer Tech</h4>
-        <p>A wide range of high-quality appliances and lifestyle electronics from the world's most trusted brands.</p>
-      </div>
-      <div class="feature-item">
-        <h4 style="color: #4682b4;">Component Supply</h4>
-        <p>Authorized distribution of critical electronic components for manufacturing and maintenance across the region.</p>
+      <div class="premium-img-wrap reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=90" alt="Advanced electronic circuitry" class="premium-img" />
       </div>
     </div>
+  </section>
 
-    <h3>Technological Expertise</h3>
-    <ul>
-      <li><strong>Strategic Partnerships:</strong> We are the authorized partner for several top-tier global technology brands.</li>
-      <li><strong>B2B Project Supply:</strong> Specialized procurement and supply chain solutions for large-scale commercial and residential projects.</li>
-      <li><strong>After-Sales Support:</strong> Dedicated service centers and technical experts providing comprehensive warranty and repair services.</li>
-      <li><strong>Supply Chain Agility:</strong> An optimized logistics network ensuring timely delivery of high-demand tech products.</li>
-    </ul>
-    
-    <br/>
-    <div class="visual-gallery reveal-on-scroll" style="margin-top: 40px; margin-bottom: 60px;">
-      <div class="section-label">Visual Insights</div>
-      <h3>Technological Solutions</h3>
-      <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-        <div class="gallery-item" style="border-radius: 12px; overflow: hidden; height: 250px; box-shadow: var(--shadow-sm);">
-          <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Smart home automation systems">
-        </div>
-        <div class="gallery-item" style="border-radius: 12px; overflow: hidden; height: 250px; box-shadow: var(--shadow-sm);">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Enterprise IT server infrastructure">
-        </div>
-        <div class="gallery-item" style="border-radius: 12px; overflow: hidden; height: 250px; box-shadow: var(--shadow-sm);">
-          <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Modern consumer electronics collection">
+  <section id="solutions" class="premium-section" style="background: #151515;">
+    <div class="premium-gallery-header reveal-on-scroll">
+      <span class="premium-label">Product Categories</span>
+      <h2>Connected Technology</h2>
+      <p style="max-width: 800px; margin: 24px auto; color: rgba(232, 221, 201, 0.6);">Precision-engineered hardware and software integration for a smarter, more efficient world.</p>
+    </div>
+    <div class="premium-feature-grid">
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">🏠</div>
+        <h3>Smart Home Systems</h3>
+        <p>Integrated automation for lighting, security, and climate control, designed for effortless living.</p>
+      </div>
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">⚙</div>
+        <h3>Electronic Components</h3>
+        <p>High-precision parts for industrial and consumer manufacturing, ensuring peak performance.</p>
+      </div>
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">🏢</div>
+        <h3>Office & Appliances</h3>
+        <p>Reliable, energy-efficient technology tailored for modern professional and domestic environments.</p>
+      </div>
+      <div class="premium-card reveal-on-scroll">
+        <div class="premium-card-icon">📈</div>
+        <h3>Enterprise Supply</h3>
+        <p>Bulk sourcing and tech infrastructure support for large-scale B2B and institutional projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="premium-section">
+    <div class="premium-grid">
+      <div class="premium-img-wrap reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=90" alt="Cybersecurity and technology" class="premium-img" />
+      </div>
+      <div class="premium-content reveal-on-scroll">
+        <span class="premium-label">The Smart Advantage</span>
+        <h2>Reliability at Scale</h2>
+        <div style="margin-top: 32px;">
+           <div style="margin-bottom: 24px;">
+             <h4 style="color: var(--premium-gold); font-family: 'Playfair Display'; font-size: 20px; margin-bottom: 8px;">Seamless Integration</h4>
+             <p style="font-size: 16px; color: rgba(232, 221, 201, 0.6);">Devices, controls, and systems work together with minimal friction.</p>
+           </div>
+           <div style="margin-bottom: 24px;">
+             <h4 style="color: var(--premium-gold); font-family: 'Playfair Display'; font-size: 20px; margin-bottom: 8px;">Energy Efficiency</h4>
+             <p style="font-size: 16px; color: rgba(232, 221, 201, 0.6);">Smarter technology designed to save power, cost, and operational load.</p>
+           </div>
+           <div>
+             <h4 style="color: var(--premium-gold); font-family: 'Playfair Display'; font-size: 20px; margin-bottom: 8px;">24/7 Support</h4>
+             <p style="font-size: 16px; color: rgba(232, 221, 201, 0.6);">Expert technical assistance for installations, upgrades, and enterprise needs.</p>
+           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="cta-box" style="background: #f0f8ff; padding: 40px; border-radius: 12px; border-left: 4px solid #4682b4;">
-      <h4>Tech Solutions for Your Business</h4>
-      <p>Need reliable electronics or enterprise-level hardware? Connect with our technology specialists to find the right solution.</p>
-      <a href="contact.html" class="btn-primary" style="background: #4682b4; border-color: #4682b4; color: white; margin-top: 15px;">Talk to an Expert</a>
+  <section class="premium-section">
+    <div class="premium-gallery-header reveal-on-scroll">
+      <span class="premium-label">Tech Showcase</span>
+      <h2>Precision. Performance.</h2>
+      <p style="max-width: 800px; margin: 24px auto; color: rgba(232, 221, 201, 0.6);">A visual system of smart homes, electronic components, and enterprise technology environments.</p>
     </div>
-  </div>
+    <div class="premium-gallery-grid">
+      <div class="gallery-img-wrap gallery-large reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=900&q=80" alt="Smart home interface" class="gallery-img" />
+      </div>
+      <div class="gallery-img-wrap reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Circuitry" class="gallery-img" />
+      </div>
+      <div class="gallery-img-wrap reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80" alt="Automation" class="gallery-img" />
+      </div>
+      <div class="gallery-img-wrap gallery-large reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="Cyber tech" class="gallery-img" />
+      </div>
+    </div>
+  </section>
+
+  <section class="premium-section premium-cta-section reveal-on-scroll">
+    <span class="premium-label">Upgrade Your World</span>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 60px); margin-bottom: 24px;">Smarter Technology Starts Here.</h2>
+    <p style="font-size: 18px; color: rgba(232, 221, 201, 0.6); max-width: 700px; margin: 0 auto 40px;">Whether you are building a smarter home or planning an enterprise project, Taj Electronics is ready to support your next upgrade.</p>
+    <a href="contact.html" class="btn-premium-gold">Get Started <span>→</span></a>
+  </section>
 
   <footer>
     <div class="footer-top">

@@ -69,9 +69,6 @@
       text-decoration: none;
     }
 
-    .nav-logo img {
-      mix-blend-mode: multiply;
-    }
 
     .nav-logo-icon {
       width: 42px; height: 42px;
